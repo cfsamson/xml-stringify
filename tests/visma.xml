@@ -57,7 +57,7 @@
 <cbc:Name>SOME COMPANY LTD</cbc:Name>
 </cac:PartyName>
 <cac:PostalAddress>
-<cbc:StreetName>SOMEMULTIBYTETEXTÆØÅÔ-LEV.E: 10.00.</cbc:StreetName>
+<cbc:StreetName>SOMEMULTIBYTECAHRSÆØÅÔ-LEV.E: 10.00.</cbc:StreetName>
 <cbc:AdditionalStreetName>MAX PALL: 1,20</cbc:AdditionalStreetName>
 <cbc:CityName>SOMECITY</cbc:CityName>
 <cbc:PostalZone>1234</cbc:PostalZone>
@@ -93,7 +93,7 @@
 <cac:DeliveryLocation>
 <cbc:ID schemeID="0088">1234123412342</cbc:ID>
 <cac:Address>
-<cbc:StreetName>SOMEMULTIBYTETEXTÆØÅÔ-LEV.E: 10.00.</cbc:StreetName>
+<cbc:StreetName>SOMEMULTIBYTECAHRSÆØÅÔ-LEV.E: 10.00.</cbc:StreetName>
 <cbc:AdditionalStreetName>MAX PALL: 1,20</cbc:AdditionalStreetName>
 <cbc:CityName>SOMECITY</cbc:CityName>
 <cbc:PostalZone>1234</cbc:PostalZone>
