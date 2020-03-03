@@ -1,3 +1,4 @@
+use crate::values::{Values, ValuePos};
 
 fn lex(input: &str) -> Vec<Token> {
 
@@ -78,10 +79,9 @@ enum ParseState  {
 
 #[derive(Debug)]
 pub struct XmlStringParser<'a> {
-    original: &'a str,
     input: Vec<Token>,
     state: ParseState,
-    text: Vec<String>,
+    values: Values<'a>,
     pos: usize,
     charcount: usize,
     start_pos: Option<usize>,
@@ -94,10 +94,10 @@ impl<'a> XmlStringParser<'a> {
         let tokens = lex(input);
         
         XmlStringParser {
-            original: input,
+            //original: input,
             input: tokens,
             state: ParseState::OutsideBracket,
-            text: vec![],
+            values: Values::new(input),
             pos: 0,
             charcount: 0,
             start_pos: None,
@@ -105,17 +105,20 @@ impl<'a> XmlStringParser<'a> {
         }
     }
 
-    pub fn parse(mut self) -> Vec<String> {
+    pub fn parse(mut self) -> Values<'a> {
         while self.step() { };
 
-        self.text
+        self.values
     }
 
     fn extract(&mut self) {
         let start = self.start_pos.expect("No start pos set.");
         let end = self.end_pos + 1;
-        let extracted = self.original[start..end].to_string();
-        self.text.push(extracted);
+
+        let pos = ValuePos::new(start, end);
+        self.values.add(pos);
+            // let extracted = self.original[start..end].to_string();
+            // self.text.push(extracted);
         // Reset start position
         self.start_pos = None
     }
@@ -188,6 +191,7 @@ impl<'a> XmlStringParser<'a> {
 
 
 
+
 #[test]
 fn edge_case() {
     let input = "
@@ -203,8 +207,9 @@ fn edge_case() {
 
     let expected = ["SOMEMULTIBYTETEXTÆØÅ👍.8-LEV.E: 10.00.", "MAX PALL: 1,20", "OSLO"];
 
-    for (got, exp) in text.iter().zip(&expected) {
-        assert_eq!(exp, got);
+    for (got, exp) in text.zip(&expected) {
+        
+        assert_eq!(*exp, got);
     }
     
 }

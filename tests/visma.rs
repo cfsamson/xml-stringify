@@ -8,7 +8,8 @@ fn name() {
 
     let mut parser = XmlStringParser::new(input);
 
-    let text = parser.parse();
+    let values = parser.parse();
+    let text = values.map(|v| v.to_string()).collect::<Vec<String>>();
     let formatted = text.join("\n");
 
     println!("{}", formatted);
