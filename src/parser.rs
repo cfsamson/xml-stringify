@@ -77,6 +77,7 @@ enum ParseState  {
     Value,
 }
 
+/// The main entry point. Provide it with a XML-file contents as a `&str`.
 #[derive(Debug)]
 pub struct XmlStringParser<'a> {
     input: Vec<Token>,
@@ -105,6 +106,7 @@ impl<'a> XmlStringParser<'a> {
         }
     }
 
+    /// Parses the document returning an iterator over the contained values.
     pub fn parse(mut self) -> Values<'a> {
         while self.step() { };
 

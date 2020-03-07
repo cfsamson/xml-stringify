@@ -10,6 +10,20 @@ impl ValuePos {
     }
 }
 
+/// An iterator over values in a parsed XML document. It will return
+/// sub-slices of the original input so it doesn't force any allocations.
+/// 
+/// ## Example
+/// ```rust
+/// # extern crate xml_stringify;
+/// # use xml_stringify::XmlStringParser;
+/// # 
+/// let parser = XmlStringParser::new("<tag>Hello world!</tag>");
+/// let mut values = parser.parse();
+/// let text = values.next().unwrap();
+/// 
+/// assert_eq!("Hello world!", text);
+/// ```
 #[derive(Debug)]
 pub struct Values<'o> {
     original: &'o str,
@@ -17,7 +31,6 @@ pub struct Values<'o> {
     next: usize,
     len: usize,
 }
-
 impl<'o> Values<'o> {
     pub(crate) fn new(orig: &'o str) -> Self {
         Values {

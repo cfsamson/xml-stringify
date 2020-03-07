@@ -1,17 +1,27 @@
-# Strigifies all values in an XML file
+# Xml-stringify
 
-This library only focuses on the value of the XML, and it's main intended
-use is to allow searching for values in an XML file whithout accedentially
-matching on keys, attribute names or attribute values.
+A library that parses XML-files and is only interested in values in the 
+xml document. It tries to do a minimal amount of work to achieve this and be
+as fast as possible.
 
-```xml
+This can be beneficial if you want to search only the values in an XML file.
+
+## Example
+
+ ```rust
+# extern crate xml_stringify;
+# use xml_stringify::XmlStringParser;
+
+let xml = r#"
 <outertag attribute1="hello">
-<innertag>Hello world</innertag>
-<\outertag>
-```
+    <innertag>Hello world</innertag>
+<\outertag>"#;
 
-Parses into:
+let parser = XmlStringParser::new(xml);
+let mut values = parser.parse();
+let first = values.next();
+let second = values.next();
 
-```
-Hello world
+assert_eq!(Some("Hello world"), first);
+assert_eq!(None, second);
 ```

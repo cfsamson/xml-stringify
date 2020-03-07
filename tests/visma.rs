@@ -6,7 +6,7 @@ use xml_stringify::XmlStringParser;
 fn name() {
     let input = include_str!("./visma.xml");
 
-    let mut parser = XmlStringParser::new(input);
+    let parser = XmlStringParser::new(input);
 
     let values = parser.parse();
     let text = values.map(|v| v.to_string()).collect::<Vec<String>>();
