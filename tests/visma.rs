@@ -4,7 +4,7 @@ use xml_stringify::XmlStringParser;
 
 #[test]
 fn name() {
-    let input = include_str!("./visma.xml");
+    let input = include_str!("./ehf.xml");
 
     let parser = XmlStringParser::new(input);
 

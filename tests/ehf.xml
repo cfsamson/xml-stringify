@@ -1,0 +1,537 @@
+<?xml version='1.0' encoding='UTF-8'?><Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2">
+<cbc:CustomizationID>urn:cen.eu:asdadx:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</cbc:CustomizationID>
+<cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
+<cbc:ID>12313</cbc:ID>
+<cbc:IssueDate>2020-01-01</cbc:IssueDate>
+<cbc:DueDate>2020-02-01</cbc:DueDate>
+<cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
+<cbc:DocumentCurrencyCode>NOK</cbc:DocumentCurrencyCode>
+<cbc:BuyerReference>PROD</cbc:BuyerReference>
+<cac:AccountingSupplierParty>
+<cac:Party>
+<cbc:EndpointID schemeID="0192">12345123</cbc:EndpointID>
+<cac:PartyIdentification>
+<cbc:ID schemeID="0088">1234123</cbc:ID>
+</cac:PartyIdentification>
+<cac:PartyName>
+<cbc:Name>COMPANYNAME</cbc:Name>
+</cac:PartyName>
+<cac:PostalAddress>
+<cbc:StreetName>STREETNAME</cbc:StreetName>
+<cbc:CityName>SOMECITY</cbc:CityName>
+<cbc:PostalZone>1234</cbc:PostalZone>
+<cac:Country>
+<cbc:IdentificationCode>NO</cbc:IdentificationCode>
+</cac:Country>
+</cac:PostalAddress>
+<cac:PartyTaxScheme>
+<cbc:CompanyID>NO1234123412</cbc:CompanyID>
+<cac:TaxScheme>
+<cbc:ID>VAT</cbc:ID>
+</cac:TaxScheme>
+</cac:PartyTaxScheme>
+<cac:PartyTaxScheme>
+<cbc:CompanyID>SomeCompanyId</cbc:CompanyID>
+<cac:TaxScheme>
+<cbc:ID>TAX</cbc:ID>
+</cac:TaxScheme>
+</cac:PartyTaxScheme>
+<cac:PartyLegalEntity>
+<cbc:RegistrationName>NAME</cbc:RegistrationName>
+<cbc:CompanyID schemeID="0192">12341234</cbc:CompanyID>
+</cac:PartyLegalEntity>
+<cac:Contact>
+<cbc:Name>Q123123</cbc:Name>
+<cbc:Telephone>22222222</cbc:Telephone>
+<cbc:ElectronicMail>some@someone.com</cbc:ElectronicMail>
+</cac:Contact>
+</cac:Party>
+</cac:AccountingSupplierParty>
+<cac:AccountingCustomerParty>
+<cac:Party>
+<cbc:EndpointID schemeID="0192">123412341</cbc:EndpointID>
+<cac:PartyIdentification>
+<cbc:ID schemeID="0088">1234123412342</cbc:ID>
+</cac:PartyIdentification>
+<cac:PartyName>
+<cbc:Name>SOME COMPANY LTD</cbc:Name>
+</cac:PartyName>
+<cac:PostalAddress>
+<cbc:StreetName>SOMEMULTIBYTECAHRSÆØÅÔ-LEV.E: 10.00.</cbc:StreetName>
+<cbc:AdditionalStreetName>MAX PALL: 1,20</cbc:AdditionalStreetName>
+<cbc:CityName>SOMECITY</cbc:CityName>
+<cbc:PostalZone>1234</cbc:PostalZone>
+<cac:Country>
+<cbc:IdentificationCode>NO</cbc:IdentificationCode>
+</cac:Country>
+</cac:PostalAddress>
+<cac:PartyTaxScheme>
+<cbc:CompanyID>NO123412341MVA</cbc:CompanyID>
+<cac:TaxScheme>
+<cbc:ID>VAT</cbc:ID>
+</cac:TaxScheme>
+</cac:PartyTaxScheme>
+<cac:PartyLegalEntity>
+<cbc:RegistrationName>SOME COMPANY LTD</cbc:RegistrationName>
+<cbc:CompanyID schemeID="0192">123412341</cbc:CompanyID>
+</cac:PartyLegalEntity>
+</cac:Party>
+</cac:AccountingCustomerParty>
+<cac:PayeeParty>
+<cac:PartyIdentification>
+<cbc:ID schemeID="0088">7080001161385</cbc:ID>
+</cac:PartyIdentification>
+<cac:PartyName>
+<cbc:Name>W.B. SAMSON A/S</cbc:Name>
+</cac:PartyName>
+<cac:PartyLegalEntity>
+<cbc:CompanyID schemeID="0192">123412341</cbc:CompanyID>
+</cac:PartyLegalEntity>
+</cac:PayeeParty>
+<cac:Delivery>
+<cbc:ActualDeliveryDate>2020-02-04</cbc:ActualDeliveryDate>
+<cac:DeliveryLocation>
+<cbc:ID schemeID="0088">1234123412342</cbc:ID>
+<cac:Address>
+<cbc:StreetName>SOMEMULTIBYTECAHRSÆØÅÔ-LEV.E: 10.00.</cbc:StreetName>
+<cbc:AdditionalStreetName>MAX PALL: 1,20</cbc:AdditionalStreetName>
+<cbc:CityName>SOMECITY</cbc:CityName>
+<cbc:PostalZone>1234</cbc:PostalZone>
+<cac:Country>
+<cbc:IdentificationCode>NO</cbc:IdentificationCode>
+</cac:Country>
+</cac:Address>
+</cac:DeliveryLocation>
+</cac:Delivery>
+<cac:PaymentMeans>
+<cbc:PaymentMeansCode>42</cbc:PaymentMeansCode>
+<cbc:PaymentID>032730520462627</cbc:PaymentID>
+<cac:PayeeFinancialAccount>
+<cbc:ID>12312312312</cbc:ID>
+</cac:PayeeFinancialAccount>
+</cac:PaymentMeans>
+<cac:AllowanceCharge>
+<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+<cbc:AllowanceChargeReason>SomeReason</cbc:AllowanceChargeReason>
+<cbc:MultiplierFactorNumeric>8.000027</cbc:MultiplierFactorNumeric>
+<cbc:Amount currencyID="NOK">949.48</cbc:Amount>
+<cbc:BaseAmount currencyID="NOK">11868.46</cbc:BaseAmount>
+<cac:TaxCategory>
+<cbc:ID>S</cbc:ID>
+<cbc:Percent>15.00</cbc:Percent>
+<cac:TaxScheme>
+<cbc:ID>VAT</cbc:ID>
+</cac:TaxScheme>
+</cac:TaxCategory>
+</cac:AllowanceCharge>
+<cac:AllowanceCharge>
+<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+<cbc:AllowanceChargeReason>SomeReason</cbc:AllowanceChargeReason>
+<cbc:MultiplierFactorNumeric>7.999017</cbc:MultiplierFactorNumeric>
+<cbc:Amount currencyID="NOK">16.27</cbc:Amount>
+<cbc:BaseAmount currencyID="NOK">203.40</cbc:BaseAmount>
+<cac:TaxCategory>
+<cbc:ID>S</cbc:ID>
+<cbc:Percent>25.00</cbc:Percent>
+<cac:TaxScheme>
+<cbc:ID>VAT</cbc:ID>
+</cac:TaxScheme>
+</cac:TaxCategory>
+</cac:AllowanceCharge>
+<cac:AllowanceCharge>
+<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+<cbc:AllowanceChargeReason>SomeReason</cbc:AllowanceChargeReason>
+<cbc:MultiplierFactorNumeric>7.999987</cbc:MultiplierFactorNumeric>
+<cbc:Amount currencyID="NOK">742.25</cbc:Amount>
+<cbc:BaseAmount currencyID="NOK">9278.14</cbc:BaseAmount>
+<cac:TaxCategory>
+<cbc:ID>S</cbc:ID>
+<cbc:Percent>15.00</cbc:Percent>
+<cac:TaxScheme>
+<cbc:ID>VAT</cbc:ID>
+</cac:TaxScheme>
+</cac:TaxCategory>
+</cac:AllowanceCharge>
+<cac:AllowanceCharge>
+<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+<cbc:AllowanceChargeReason>SomeReason</cbc:AllowanceChargeReason>
+<cbc:MultiplierFactorNumeric>7.999983</cbc:MultiplierFactorNumeric>
+<cbc:Amount currencyID="NOK">936.33</cbc:Amount>
+<cbc:BaseAmount currencyID="NOK">11704.15</cbc:BaseAmount>
+<cac:TaxCategory>
+<cbc:ID>S</cbc:ID>
+<cbc:Percent>15.00</cbc:Percent>
+<cac:TaxScheme>
+<cbc:ID>VAT</cbc:ID>
+</cac:TaxScheme>
+</cac:TaxCategory>
+</cac:AllowanceCharge>
+<cac:TaxTotal>
+<cbc:TaxAmount currencyID="NOK">4580.18</cbc:TaxAmount>
+<cac:TaxSubtotal>
+<cbc:TaxableAmount currencyID="NOK">187.13</cbc:TaxableAmount>
+<cbc:TaxAmount currencyID="NOK">46.78</cbc:TaxAmount>
+<cac:TaxCategory>
+<cbc:ID>S</cbc:ID>
+<cbc:Percent>25.00</cbc:Percent>
+<cac:TaxScheme>
+<cbc:ID>VAT</cbc:ID>
+</cac:TaxScheme>
+</cac:TaxCategory>
+</cac:TaxSubtotal>
+<cac:TaxSubtotal>
+<cbc:TaxableAmount currencyID="NOK">30222.69</cbc:TaxableAmount>
+<cbc:TaxAmount currencyID="NOK">4533.40</cbc:TaxAmount>
+<cac:TaxCategory>
+<cbc:ID>S</cbc:ID>
+<cbc:Percent>15.00</cbc:Percent>
+<cac:TaxScheme>
+<cbc:ID>VAT</cbc:ID>
+</cac:TaxScheme>
+</cac:TaxCategory>
+</cac:TaxSubtotal>
+</cac:TaxTotal>
+<cac:LegalMonetaryTotal>
+<cbc:LineExtensionAmount currencyID="NOK">33054.15</cbc:LineExtensionAmount>
+<cbc:TaxExclusiveAmount currencyID="NOK">30409.82</cbc:TaxExclusiveAmount>
+<cbc:TaxInclusiveAmount currencyID="NOK">34990.00</cbc:TaxInclusiveAmount>
+<cbc:AllowanceTotalAmount currencyID="NOK">2644.33</cbc:AllowanceTotalAmount>
+<cbc:PayableAmount currencyID="NOK">34990.00</cbc:PayableAmount>
+</cac:LegalMonetaryTotal>
+<cac:InvoiceLine>
+<cbc:ID>001</cbc:ID>
+<cbc:InvoicedQuantity unitCode="KGM">2.000</cbc:InvoicedQuantity>
+<cbc:LineExtensionAmount currencyID="NOK">518.24</cbc:LineExtensionAmount>
+<cac:Item>
+<cbc:Name>ITEM 1</cbc:Name>
+<cac:SellersItemIdentification>
+<cbc:ID>11402</cbc:ID>
+</cac:SellersItemIdentification>
+<cac:ClassifiedTaxCategory>
+<cbc:ID schemeID="UNCL5305">S</cbc:ID>
+<cbc:Percent>15.00</cbc:Percent>
+<cac:TaxScheme>
+<cbc:ID>VAT</cbc:ID>
+</cac:TaxScheme>
+</cac:ClassifiedTaxCategory>
+</cac:Item>
+<cac:Price>
+<cbc:PriceAmount currencyID="NOK">259.12</cbc:PriceAmount>
+</cac:Price>
+</cac:InvoiceLine>
+<cac:InvoiceLine>
+<cbc:ID>002</cbc:ID>
+<cbc:InvoicedQuantity unitCode="KGM">23.625</cbc:InvoicedQuantity>
+<cbc:LineExtensionAmount currencyID="NOK">2484.17</cbc:LineExtensionAmount>
+<cac:Item>
+<cbc:Name>ITEM 2</cbc:Name>
+<cac:SellersItemIdentification>
+<cbc:ID>85103</cbc:ID>
+</cac:SellersItemIdentification>
+<cac:ClassifiedTaxCategory>
+<cbc:ID schemeID="UNCL5305">S</cbc:ID>
+<cbc:Percent>15.00</cbc:Percent>
+<cac:TaxScheme>
+<cbc:ID>VAT</cbc:ID>
+</cac:TaxScheme>
+</cac:ClassifiedTaxCategory>
+</cac:Item>
+<cac:Price>
+<cbc:PriceAmount currencyID="NOK">105.15</cbc:PriceAmount>
+</cac:Price>
+</cac:InvoiceLine>
+<cac:InvoiceLine>
+<cbc:ID>003</cbc:ID>
+<cbc:InvoicedQuantity unitCode="KGM">10.000</cbc:InvoicedQuantity>
+<cbc:LineExtensionAmount currencyID="NOK">501.40</cbc:LineExtensionAmount>
+<cac:Item>
+<cbc:Name>ITEM 3</cbc:Name>
+<cac:SellersItemIdentification>
+<cbc:ID>26110</cbc:ID>
+</cac:SellersItemIdentification>
+<cac:ClassifiedTaxCategory>
+<cbc:ID schemeID="UNCL5305">S</cbc:ID>
+<cbc:Percent>15.00</cbc:Percent>
+<cac:TaxScheme>
+<cbc:ID>VAT</cbc:ID>
+</cac:TaxScheme>
+</cac:ClassifiedTaxCategory>
+</cac:Item>
+<cac:Price>
+<cbc:PriceAmount currencyID="NOK">50.14</cbc:PriceAmount>
+</cac:Price>
+</cac:InvoiceLine>
+<cac:InvoiceLine>
+<cbc:ID>004</cbc:ID>
+<cbc:InvoicedQuantity unitCode="KGM">30.000</cbc:InvoicedQuantity>
+<cbc:LineExtensionAmount currencyID="NOK">1037.70</cbc:LineExtensionAmount>
+<cac:Item>
+<cbc:Name>ITEM 4</cbc:Name>
+<cac:SellersItemIdentification>
+<cbc:ID>76815</cbc:ID>
+</cac:SellersItemIdentification>
+<cac:ClassifiedTaxCategory>
+<cbc:ID schemeID="UNCL5305">S</cbc:ID>
+<cbc:Percent>15.00</cbc:Percent>
+<cac:TaxScheme>
+<cbc:ID>VAT</cbc:ID>
+</cac:TaxScheme>
+</cac:ClassifiedTaxCategory>
+</cac:Item>
+<cac:Price>
+<cbc:PriceAmount currencyID="NOK">34.59</cbc:PriceAmount>
+</cac:Price>
+</cac:InvoiceLine>
+<cac:InvoiceLine>
+<cbc:ID>005</cbc:ID>
+<cbc:InvoicedQuantity unitCode="KGM">600.000</cbc:InvoicedQuantity>
+<cbc:LineExtensionAmount currencyID="NOK">6630.00</cbc:LineExtensionAmount>
+<cac:Item>
+<cbc:Name>ITEM 5</cbc:Name>
+<cac:SellersItemIdentification>
+<cbc:ID>98932</cbc:ID>
+</cac:SellersItemIdentification>
+<cac:ClassifiedTaxCategory>
+<cbc:ID schemeID="UNCL5305">S</cbc:ID>
+<cbc:Percent>15.00</cbc:Percent>
+<cac:TaxScheme>
+<cbc:ID>VAT</cbc:ID>
+</cac:TaxScheme>
+</cac:ClassifiedTaxCategory>
+</cac:Item>
+<cac:Price>
+<cbc:PriceAmount currencyID="NOK">11.05</cbc:PriceAmount>
+</cac:Price>
+</cac:InvoiceLine>
+<cac:InvoiceLine>
+<cbc:ID>006</cbc:ID>
+<cbc:InvoicedQuantity unitCode="KGM">5.000</cbc:InvoicedQuantity>
+<cbc:LineExtensionAmount currencyID="NOK">339.05</cbc:LineExtensionAmount>
+<cac:Item>
+<cbc:Name>ITEM 6</cbc:Name>
+<cac:SellersItemIdentification>
+<cbc:ID>37105</cbc:ID>
+</cac:SellersItemIdentification>
+<cac:ClassifiedTaxCategory>
+<cbc:ID schemeID="UNCL5305">S</cbc:ID>
+<cbc:Percent>15.00</cbc:Percent>
+<cac:TaxScheme>
+<cbc:ID>VAT</cbc:ID>
+</cac:TaxScheme>
+</cac:ClassifiedTaxCategory>
+</cac:Item>
+<cac:Price>
+<cbc:PriceAmount currencyID="NOK">67.81</cbc:PriceAmount>
+</cac:Price>
+</cac:InvoiceLine>
+<cac:InvoiceLine>
+<cbc:ID>007</cbc:ID>
+<cbc:InvoicedQuantity unitCode="KGM">5.000</cbc:InvoicedQuantity>
+<cbc:LineExtensionAmount currencyID="NOK">357.90</cbc:LineExtensionAmount>
+<cac:Item>
+<cbc:Name>ITEM 7</cbc:Name>
+<cac:SellersItemIdentification>
+<cbc:ID>37205</cbc:ID>
+</cac:SellersItemIdentification>
+<cac:ClassifiedTaxCategory>
+<cbc:ID schemeID="UNCL5305">S</cbc:ID>
+<cbc:Percent>15.00</cbc:Percent>
+<cac:TaxScheme>
+<cbc:ID>VAT</cbc:ID>
+</cac:TaxScheme>
+</cac:ClassifiedTaxCategory>
+</cac:Item>
+<cac:Price>
+<cbc:PriceAmount currencyID="NOK">71.58</cbc:PriceAmount>
+</cac:Price>
+</cac:InvoiceLine>
+<cac:InvoiceLine>
+<cbc:ID>001</cbc:ID>
+<cbc:InvoicedQuantity unitCode="KGM">20.250</cbc:InvoicedQuantity>
+<cbc:LineExtensionAmount currencyID="NOK">2129.29</cbc:LineExtensionAmount>
+<cac:Item>
+<cbc:Name>ITEM 8</cbc:Name>
+<cac:SellersItemIdentification>
+<cbc:ID>85103</cbc:ID>
+</cac:SellersItemIdentification>
+<cac:ClassifiedTaxCategory>
+<cbc:ID schemeID="UNCL5305">S</cbc:ID>
+<cbc:Percent>15.00</cbc:Percent>
+<cac:TaxScheme>
+<cbc:ID>VAT</cbc:ID>
+</cac:TaxScheme>
+</cac:ClassifiedTaxCategory>
+</cac:Item>
+<cac:Price>
+<cbc:PriceAmount currencyID="NOK">105.15</cbc:PriceAmount>
+</cac:Price>
+</cac:InvoiceLine>
+<cac:InvoiceLine>
+<cbc:ID>002</cbc:ID>
+<cbc:InvoicedQuantity unitCode="KGM">15.000</cbc:InvoicedQuantity>
+<cbc:LineExtensionAmount currencyID="NOK">518.85</cbc:LineExtensionAmount>
+<cac:Item>
+<cbc:Name>ITEM 9</cbc:Name>
+<cac:SellersItemIdentification>
+<cbc:ID>76815</cbc:ID>
+</cac:SellersItemIdentification>
+<cac:ClassifiedTaxCategory>
+<cbc:ID schemeID="UNCL5305">S</cbc:ID>
+<cbc:Percent>15.00</cbc:Percent>
+<cac:TaxScheme>
+<cbc:ID>VAT</cbc:ID>
+</cac:TaxScheme>
+</cac:ClassifiedTaxCategory>
+</cac:Item>
+<cac:Price>
+<cbc:PriceAmount currencyID="NOK">34.59</cbc:PriceAmount>
+</cac:Price>
+</cac:InvoiceLine>
+<cac:InvoiceLine>
+<cbc:ID>003</cbc:ID>
+<cbc:InvoicedQuantity unitCode="KGM">600.000</cbc:InvoicedQuantity>
+<cbc:LineExtensionAmount currencyID="NOK">6630.00</cbc:LineExtensionAmount>
+<cac:Item>
+<cbc:Name>ITEM 10</cbc:Name>
+<cac:SellersItemIdentification>
+<cbc:ID>98932</cbc:ID>
+</cac:SellersItemIdentification>
+<cac:ClassifiedTaxCategory>
+<cbc:ID schemeID="UNCL5305">S</cbc:ID>
+<cbc:Percent>15.00</cbc:Percent>
+<cac:TaxScheme>
+<cbc:ID>VAT</cbc:ID>
+</cac:TaxScheme>
+</cac:ClassifiedTaxCategory>
+</cac:Item>
+<cac:Price>
+<cbc:PriceAmount currencyID="NOK">11.05</cbc:PriceAmount>
+</cac:Price>
+</cac:InvoiceLine>
+<cac:InvoiceLine>
+<cbc:ID>004</cbc:ID>
+<cbc:InvoicedQuantity unitCode="EA">10.000</cbc:InvoicedQuantity>
+<cbc:LineExtensionAmount currencyID="NOK">203.40</cbc:LineExtensionAmount>
+<cac:Item>
+<cbc:Name>ITEM 11</cbc:Name>
+<cac:SellersItemIdentification>
+<cbc:ID>96403</cbc:ID>
+</cac:SellersItemIdentification>
+<cac:ClassifiedTaxCategory>
+<cbc:ID schemeID="UNCL5305">S</cbc:ID>
+<cbc:Percent>25.00</cbc:Percent>
+<cac:TaxScheme>
+<cbc:ID>VAT</cbc:ID>
+</cac:TaxScheme>
+</cac:ClassifiedTaxCategory>
+</cac:Item>
+<cac:Price>
+<cbc:PriceAmount currencyID="NOK">20.34</cbc:PriceAmount>
+</cac:Price>
+</cac:InvoiceLine>
+<cac:InvoiceLine>
+<cbc:ID>001</cbc:ID>
+<cbc:InvoicedQuantity unitCode="KGM">27.000</cbc:InvoicedQuantity>
+<cbc:LineExtensionAmount currencyID="NOK">2839.05</cbc:LineExtensionAmount>
+<cac:Item>
+<cbc:Name>ITEM 12</cbc:Name>
+<cac:SellersItemIdentification>
+<cbc:ID>85103</cbc:ID>
+</cac:SellersItemIdentification>
+<cac:ClassifiedTaxCategory>
+<cbc:ID schemeID="UNCL5305">S</cbc:ID>
+<cbc:Percent>15.00</cbc:Percent>
+<cac:TaxScheme>
+<cbc:ID>VAT</cbc:ID>
+</cac:TaxScheme>
+</cac:ClassifiedTaxCategory>
+</cac:Item>
+<cac:Price>
+<cbc:PriceAmount currencyID="NOK">105.15</cbc:PriceAmount>
+</cac:Price>
+</cac:InvoiceLine>
+<cac:InvoiceLine>
+<cbc:ID>002</cbc:ID>
+<cbc:InvoicedQuantity unitCode="KGM">30.000</cbc:InvoicedQuantity>
+<cbc:LineExtensionAmount currencyID="NOK">1037.70</cbc:LineExtensionAmount>
+<cac:Item>
+<cbc:Name>ITEM 13</cbc:Name>
+<cac:SellersItemIdentification>
+<cbc:ID>76815</cbc:ID>
+</cac:SellersItemIdentification>
+<cac:ClassifiedTaxCategory>
+<cbc:ID schemeID="UNCL5305">S</cbc:ID>
+<cbc:Percent>15.00</cbc:Percent>
+<cac:TaxScheme>
+<cbc:ID>VAT</cbc:ID>
+</cac:TaxScheme>
+</cac:ClassifiedTaxCategory>
+</cac:Item>
+<cac:Price>
+<cbc:PriceAmount currencyID="NOK">34.59</cbc:PriceAmount>
+</cac:Price>
+</cac:InvoiceLine>
+<cac:InvoiceLine>
+<cbc:ID>003</cbc:ID>
+<cbc:InvoicedQuantity unitCode="KGM">600.000</cbc:InvoicedQuantity>
+<cbc:LineExtensionAmount currencyID="NOK">6630.00</cbc:LineExtensionAmount>
+<cac:Item>
+<cbc:Name>ITEM 14</cbc:Name>
+<cac:SellersItemIdentification>
+<cbc:ID>98932</cbc:ID>
+</cac:SellersItemIdentification>
+<cac:ClassifiedTaxCategory>
+<cbc:ID schemeID="UNCL5305">S</cbc:ID>
+<cbc:Percent>15.00</cbc:Percent>
+<cac:TaxScheme>
+<cbc:ID>VAT</cbc:ID>
+</cac:TaxScheme>
+</cac:ClassifiedTaxCategory>
+</cac:Item>
+<cac:Price>
+<cbc:PriceAmount currencyID="NOK">11.05</cbc:PriceAmount>
+</cac:Price>
+</cac:InvoiceLine>
+<cac:InvoiceLine>
+<cbc:ID>004</cbc:ID>
+<cbc:InvoicedQuantity unitCode="KGM">10.000</cbc:InvoicedQuantity>
+<cbc:LineExtensionAmount currencyID="NOK">543.70</cbc:LineExtensionAmount>
+<cac:Item>
+<cbc:Name>ITEM 15</cbc:Name>
+<cac:SellersItemIdentification>
+<cbc:ID>38810</cbc:ID>
+</cac:SellersItemIdentification>
+<cac:ClassifiedTaxCategory>
+<cbc:ID schemeID="UNCL5305">S</cbc:ID>
+<cbc:Percent>15.00</cbc:Percent>
+<cac:TaxScheme>
+<cbc:ID>VAT</cbc:ID>
+</cac:TaxScheme>
+</cac:ClassifiedTaxCategory>
+</cac:Item>
+<cac:Price>
+<cbc:PriceAmount currencyID="NOK">54.37</cbc:PriceAmount>
+</cac:Price>
+</cac:InvoiceLine>
+<cac:InvoiceLine>
+<cbc:ID>005</cbc:ID>
+<cbc:InvoicedQuantity unitCode="KGM">5.000</cbc:InvoicedQuantity>
+<cbc:LineExtensionAmount currencyID="NOK">653.70</cbc:LineExtensionAmount>
+<cac:Item>
+<cbc:Name>ITEM 16</cbc:Name>
+<cac:SellersItemIdentification>
+<cbc:ID>48402</cbc:ID>
+</cac:SellersItemIdentification>
+<cac:ClassifiedTaxCategory>
+<cbc:ID schemeID="UNCL5305">S</cbc:ID>
+<cbc:Percent>15.00</cbc:Percent>
+<cac:TaxScheme>
+<cbc:ID>VAT</cbc:ID>
+</cac:TaxScheme>
+</cac:ClassifiedTaxCategory>
+</cac:Item>
+<cac:Price>
+<cbc:PriceAmount currencyID="NOK">130.74</cbc:PriceAmount>
+</cac:Price>
+</cac:InvoiceLine>
+</Invoice>

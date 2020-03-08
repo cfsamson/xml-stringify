@@ -11,8 +11,8 @@ fn tiny_xmlparser(bencher: &mut Bencher) {
     })
 }
 
-fn medium_xmlparser(bencher: &mut Bencher) {
-    let text = std::fs::read_to_string("medium.svg").unwrap();
+fn ehf_xmlparser(bencher: &mut Bencher) {
+    let text = std::fs::read_to_string("ehf.xml").unwrap();
     bencher.iter(|| {
         for t in xmlparser::Tokenizer::from(text.as_str()) {
             let _ = t.unwrap();
@@ -39,8 +39,8 @@ fn tiny_xmlrs(bencher: &mut Bencher) {
     })
 }
 
-fn medium_xmlrs(bencher: &mut Bencher) {
-    let text = std::fs::read_to_string("medium.svg").unwrap();
+fn ehf_xmlrs(bencher: &mut Bencher) {
+    let text = std::fs::read_to_string("ehf.xml").unwrap();
     bencher.iter(|| {
         for event in xml::EventReader::new(text.as_bytes()) {
             let _ = event.unwrap();
@@ -83,8 +83,8 @@ fn tiny_quick_xml(bencher: &mut Bencher) {
     bencher.iter(|| parse_via_quick_xml(&text))
 }
 
-fn medium_quick_xml(bencher: &mut Bencher) {
-    let text = std::fs::read_to_string("medium.svg").unwrap();
+fn ehf_quick_xml(bencher: &mut Bencher) {
+    let text = std::fs::read_to_string("ehf.xml").unwrap();
     bencher.iter(|| parse_via_quick_xml(&text))
 }
 
@@ -99,8 +99,8 @@ fn tiny_roxmltree(bencher: &mut Bencher) {
     bencher.iter(|| roxmltree::Document::parse(&text).unwrap())
 }
 
-fn medium_roxmltree(bencher: &mut Bencher) {
-    let text = std::fs::read_to_string("medium.svg").unwrap();
+fn ehf_roxmltree(bencher: &mut Bencher) {
+    let text = std::fs::read_to_string("ehf.xml").unwrap();
     bencher.iter(|| roxmltree::Document::parse(&text).unwrap())
 }
 
@@ -115,8 +115,8 @@ fn tiny_xmltree(bencher: &mut Bencher) {
     bencher.iter(|| xmltree::Element::parse(text.as_bytes()).unwrap())
 }
 
-fn medium_xmltree(bencher: &mut Bencher) {
-    let text = std::fs::read_to_string("medium.svg").unwrap();
+fn ehf_xmltree(bencher: &mut Bencher) {
+    let text = std::fs::read_to_string("ehf.xml").unwrap();
     bencher.iter(|| xmltree::Element::parse(text.as_bytes()).unwrap())
 }
 
@@ -131,8 +131,8 @@ fn tiny_sdx_document(bencher: &mut Bencher) {
     bencher.iter(|| sxd_document::parser::parse(&text).unwrap())
 }
 
-fn medium_sdx_document(bencher: &mut Bencher) {
-    let text = std::fs::read_to_string("medium.svg").unwrap();
+fn ehf_sdx_document(bencher: &mut Bencher) {
+    let text = std::fs::read_to_string("ehf.xml").unwrap();
     bencher.iter(|| sxd_document::parser::parse(&text).unwrap())
 }
 
@@ -149,8 +149,8 @@ fn tiny_minidom(bencher: &mut Bencher) {
     })
 }
 
-fn medium_minidom(bencher: &mut Bencher) {
-    let data = std::fs::read_to_string("medium.svg").unwrap();
+fn ehf_minidom(bencher: &mut Bencher) {
+    let data = std::fs::read_to_string("ehf.xml").unwrap();
     bencher.iter(|| {
         let _root: minidom::Element = data.parse().unwrap();
     })
@@ -175,8 +175,8 @@ fn tiny_xmlstringify(bencher: &mut Bencher) {
     })
 }
 
-fn medium_xmlstringify(bencher: &mut Bencher) {
-    let text = std::fs::read_to_string("medium.svg").unwrap();
+fn ehf_xmlstringify(bencher: &mut Bencher) {
+    let text = std::fs::read_to_string("ehf.xml").unwrap();
     bencher.iter(|| {
         let parser = xml_stringify::XmlStringParser::new(&text);
         parser.parse()
@@ -192,12 +192,12 @@ fn large_xmlstringify(bencher: &mut Bencher) {
 }
 
 
-benchmark_group!(roxmltree, tiny_roxmltree, medium_roxmltree, large_roxmltree);
-//benchmark_group!(xmltree, tiny_xmltree, medium_xmltree, large_xmltree);
-benchmark_group!(sdx, tiny_sdx_document, medium_sdx_document, large_sdx_document);
-//benchmark_group!(minidom, tiny_minidom, medium_minidom, large_minidom);
-benchmark_group!(xmlparser, tiny_xmlparser, medium_xmlparser, large_xmlparser);
-benchmark_group!(xmlrs, tiny_xmlrs, medium_xmlrs, large_xmlrs);
-benchmark_group!(quick_xml, tiny_quick_xml, medium_quick_xml, large_quick_xml);
-benchmark_group!(xmlstringify, tiny_xmlstringify, medium_xmlstringify, large_xmlstringify);
-benchmark_main!(xmlstringify, roxmltree,  sdx,  xmlparser, xmlrs, quick_xml);
+benchmark_group!(roxmltree, tiny_roxmltree, ehf_roxmltree, large_roxmltree);
+benchmark_group!(xmltree, tiny_xmltree, ehf_xmltree, large_xmltree);
+benchmark_group!(sdx, tiny_sdx_document, ehf_sdx_document, large_sdx_document);
+benchmark_group!(minidom, tiny_minidom, ehf_minidom, large_minidom);
+benchmark_group!(xmlparser, tiny_xmlparser, ehf_xmlparser, large_xmlparser);
+benchmark_group!(xmlrs, tiny_xmlrs, ehf_xmlrs, large_xmlrs);
+benchmark_group!(quick_xml, tiny_quick_xml, ehf_quick_xml, large_quick_xml);
+benchmark_group!(xmlstringify, tiny_xmlstringify, ehf_xmlstringify, large_xmlstringify);
+benchmark_main!(xmlstringify, roxmltree, xmltree, sdx, minidom, xmlparser, xmlrs, quick_xml);
