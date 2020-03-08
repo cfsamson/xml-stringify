@@ -1,44 +1,5 @@
-use crate::values::{Values, ValuePos};
-
-fn lex(input: &str) -> Vec<Token> {
-
-    let mut byteindex = 0;
-
-    let mut chars = input.chars().peekable();
-    // Remove whitespace and newlines from the start
-    while let Some(ch) = chars.peek() {
-        let token = Token::from(*ch, 0);
-        match token {
-            Token::WhiteSpace | Token::NewLine => {
-                let c = chars.next().unwrap();
-                byteindex += c.len_utf8();
-            }
-
-            _ => break,
-        }
-    }
-
-    // We're at the first character
-    let mut tokens: Vec<Token> = chars.map(|t| {
-        let token = Token::from(t, byteindex);
-        byteindex += t.len_utf8();
-        token
-    }).collect();
-
-    // remove whitespace from the end
-    while let Some(token) = tokens.pop() {
-        match token {
-            Token::WhiteSpace | Token::NewLine => (),
-            _ => {
-                // it wasn't a nl or ws so we put it back
-                tokens.push(token);
-                break;
-            }
-        }
-    }
-
-    tokens
-}
+use crate::values::{ValuePos, Values};
+use std::str::Chars;
 
 #[derive(Debug)]
 enum Token {
@@ -49,28 +10,27 @@ enum Token {
     Slash,
     Tick,
     NewLine,
-    Char(usize),
+    Char,
 }
 
 impl Token {
-    fn from(c: char, index: usize) -> Token {
+    fn from(c: char) -> Token {
         use Token::*;
         match c {
-            _ if c.is_whitespace() => WhiteSpace,
-            _ if c.is_control() => NewLine,
+            ' ' => WhiteSpace, // needs more testing if we need: _ if c.is_whitespace()
+            '\n'  => NewLine,
             '<' => LeftCroc,
             '>' => RightCroc,
             '=' => Equalsign,
             '/' => Slash,
             '"' => Tick,
-            // this in string indicies `text[start_index..end_index]`
-            _ => Char(index),
+            _ => Char,
         }
     }
 }
 
 #[derive(Clone, Copy, Debug)]
-enum ParseState  {
+enum ParseState {
     InsideOpenBracket,
     InsideCloseBracket,
     OutsideBracket,
@@ -80,36 +40,36 @@ enum ParseState  {
 /// The main entry point. Provide it with a XML-file contents as a `&str`.
 #[derive(Debug)]
 pub struct XmlStringParser<'a> {
-    input: Vec<Token>,
+    original: &'a str,
+    input: Chars<'a>,
     state: ParseState,
     values: Values<'a>,
-    pos: usize,
     charcount: usize,
     start_pos: Option<usize>,
     end_pos: usize,
+    bytepos: usize,
 }
 
 impl<'a> XmlStringParser<'a> {
     pub fn new(input: &'a str) -> Self {
-
-        let tokens = lex(input);
-        
         XmlStringParser {
-            //original: input,
-            input: tokens,
+            original: input,
+            input: input.chars(),
             state: ParseState::OutsideBracket,
             values: Values::new(input),
-            pos: 0,
             charcount: 0,
             start_pos: None,
             end_pos: 0,
+            bytepos: 0,
         }
     }
 
     /// Parses the document returning an iterator over the contained values.
     pub fn parse(mut self) -> Values<'a> {
-        while self.step() { };
 
+        while let Some(ch) = self.input.next() {
+            self.step(ch);
+        }
         self.values
     }
 
@@ -119,80 +79,69 @@ impl<'a> XmlStringParser<'a> {
 
         let pos = ValuePos::new(start, end);
         self.values.add(pos);
-            // let extracted = self.original[start..end].to_string();
-            // self.text.push(extracted);
         // Reset start position
         self.start_pos = None
     }
 
-    fn step(&mut self) -> bool {
+    fn step(&mut self, ch: char) {
         use ParseState::*;
 
-        match self.input[self.pos] {
-            Token::LeftCroc => match self.state {
-                OutsideBracket => self.state = InsideOpenBracket,
-                Value => {
-                    // if there are no characters, we're in a nested scope
-                    if self.charcount == 0 {
-                        self.state = InsideOpenBracket;
-                    } else {
-                        self.state = InsideCloseBracket;
-                        // Extract the text
-                        self.extract();
-                        self.charcount = 0;
+            match Token::from(ch) {
+                Token::LeftCroc => match self.state {
+                    OutsideBracket => self.state = InsideOpenBracket,
+                    Value => {
+                        // if there are no characters, we're in a nested scope
+                        if self.charcount == 0 {
+                            self.state = InsideOpenBracket;
+                        } else {
+                            self.state = InsideCloseBracket;
+                            // Extract the text
+                            self.extract();
+                            self.charcount = 0;
+                        }
                     }
-                }
-                _ => (),
-            }
+                    _ => (),
+                },
 
-            Token::RightCroc => match self.state {
-                InsideOpenBracket => self.state = Value,
-                InsideCloseBracket => self.state = OutsideBracket,
-                _ => panic!("unexpeced double >>"),
-            }
+                Token::RightCroc => match self.state {
+                    InsideOpenBracket => self.state = Value,
+                    InsideCloseBracket => self.state = OutsideBracket,
+                    _ => panic!("unexpeced double >>"),
+                },
 
-            Token::Char(index) => match self.state {
-                ParseState::Value => {
-                    match self.start_pos {
-                        Some(_) => (),
-                        None => self.start_pos = Some(index),
-                    }
-                    self.end_pos = index;
-                    self.charcount += 1;
-                }
-
-                _ => (),
-            }
-
-            Token::WhiteSpace => match self.state {
-                ParseState::Value => {
-                    // if we already have one character
-                    if let Some(_) = self.start_pos {
+                Token::Char => match self.state {
+                    ParseState::Value => {
+                        match self.start_pos {
+                            Some(_) => (),
+                            None => {
+                                self.start_pos = Some(self.bytepos);
+                            }
+                        }
+                        self.end_pos = self.bytepos;
                         self.charcount += 1;
                     }
-                }
 
+                    _ => (),
+                },
+
+                Token::WhiteSpace => match self.state {
+                    ParseState::Value => {
+                        // if we already have one character
+                        if let Some(_) = self.start_pos {
+                            self.charcount += 1;
+                        }
+                    }
+
+                    _ => (),
+                },
                 _ => (),
-            }
-
-            _ => (),
+            
+            
         }
 
-        self.pos += 1;
-
-        if self.pos < self.input.len() {
-            true
-        } else {
-            false
-        }
+        self.bytepos += ch.len_utf8();
     }
 }
-
-
-
-
-
-
 
 #[test]
 fn edge_case() {
@@ -207,11 +156,13 @@ fn edge_case() {
 
     let text = parser.parse();
 
-    let expected = ["SOMEMULTIBYTETEXTÆØÅ👍.8-LEV.E: 10.00.", "MAX PALL: 1,20", "OSLO"];
+    let expected = [
+        "SOMEMULTIBYTETEXTÆØÅ👍.8-LEV.E: 10.00.",
+        "MAX PALL: 1,20",
+        "OSLO",
+    ];
 
     for (got, exp) in text.zip(&expected) {
-        
         assert_eq!(*exp, got);
     }
-    
 }

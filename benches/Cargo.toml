@@ -19,3 +19,5 @@ xml_stringify = {path = "../"}
 name = "benchmark"
 path = "xml.rs"
 harness = false
+
+
